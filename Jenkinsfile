@@ -25,10 +25,11 @@ pipeline {
                                 }
                             }
                         }
-                        stage('Test B'){
+                        stage('compile'){
                             steps{
                                 script{
-                                    echo('Test B')
+                                    sh 'mvn compile'
+                                    echo('compile')
                                 }
                             }
                         }
