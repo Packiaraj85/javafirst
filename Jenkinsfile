@@ -17,10 +17,11 @@ pipeline {
             parallel{
                 stage('nested loop1') {
                     stages{
-                        stage('Test A'){
+                        stage('Unit Test'){
                             steps{
                                 script{
-                                    echo("Test A")
+                                    echo("Unit Test")
+                                    sh 'mvn test'
                                 }
                             }
                         }
