@@ -34,17 +34,20 @@ pipeline {
                         }
                     }
                 }
-                stage('Perfomance Test'){
+                stage('validate'){
                     steps{
                         script{
-                            echo('Perfomance Test success')
+
+                            sh 'mvn validate'
+                            echo('validate Test success')
                         }
                     }
                 }
-              stage('Quvality Test'){
+              stage('Quvality verify'){
                     steps{
                         script{
-                            echo('Quvality Test success')
+                            sh 'mvn verify'
+                            echo('verify Test success')
                         }
                     }
                 }
@@ -53,6 +56,7 @@ pipeline {
         stage('Deploy'){
             steps{
                 script{
+                    sh 'mvn install'
                     echo('Deploy success')                
                 }
             }
